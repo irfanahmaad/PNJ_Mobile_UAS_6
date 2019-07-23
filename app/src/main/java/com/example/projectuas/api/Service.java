@@ -7,6 +7,7 @@ import com.example.projectuas.models.Books;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -34,5 +35,9 @@ public interface Service {
             @Field("author") String author,
             @Field("image") String image,
             @Field("description") String description
+    );
+
+    Call<BookResponse> deleteBook(
+            @Field("id") int bookId
     );
 }

@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
             //TODO: Step 4 of 4: Finally call getTag() on the view.
             // This viewHolder will have all required values.
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
-            int position = viewHolder.getAdapterPosition();
-            // viewHolder.getItemId();
+            final int position = viewHolder.getAdapterPosition();
             // viewHolder.getItemViewType();
             // viewHolder.itemView;
 //            final Book book = values.get(position);
@@ -51,21 +50,22 @@ public class MainActivity extends AppCompatActivity {
 
             Service service = retrofit.create(Service.class);
 
-            Call<BookResponse> call = service.getBook(position+1);
+            Call<Books> call = service.getBooks();
 
-            call.enqueue(new Callback<BookResponse>() {
+            call.enqueue(new Callback<Books>() {
                 @Override
-                public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
+                public void onResponse(Call<Books> call, Response<Books> response) {
                     Intent intent = new Intent(getApplicationContext(), BookDetailActivity.class);
-                    intent.putExtra("name", response.body().getBook().getName());
-                    intent.putExtra("author", response.body().getBook().getAuthor());
-                    intent.putExtra("description", response.body().getBook().getDescription());
-                    intent.putExtra("image", response.body().getBook().getImage());
+                    intent.putExtra("id", response.body().getBooks().get(position).getId());
+                    intent.putExtra("name", response.body().getBooks().get(position).getName());
+                    intent.putExtra("author", response.body().getBooks().get(position).getAuthor());
+                    intent.putExtra("description", response.body().getBooks().get(position).getDescription());
+                    intent.putExtra("image", response.body().getBooks().get(position).getImage());
                     startActivity(intent);
                 }
 
                 @Override
-                public void onFailure(Call<BookResponse> call, Throwable t) {
+                public void onFailure(Call<Books> call, Throwable t) {
                     Toast.makeText(MainActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
