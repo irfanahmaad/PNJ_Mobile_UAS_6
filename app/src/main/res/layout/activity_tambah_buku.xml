@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahBukuActivity">
+    tools:context=".AddBookActivity">
 
     <TextView
         android:id="@+id/TextTambah"
@@ -37,7 +37,7 @@
                 android:textSize="14sp"/>
 
             <EditText
-                android:id="@+id/inputTitle"
+                android:id="@+id/inputName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/fab_margin"
@@ -108,8 +108,51 @@
                 android:textColor="#000"
                 android:textSize="14sp"/>
 
+            <Button
+                android:id="@+id/uploadGambar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="Upload Gambar"
+                android:textAllCaps="false"/>
+
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textGambar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Image.jpg"
+                android:textColor="#000"
+                android:layout_marginLeft="128dp"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="128dp"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simpan"
+                android:textAllCaps="false"/>
+
+
+
+        </LinearLayout>
+
+
+
 
 
 

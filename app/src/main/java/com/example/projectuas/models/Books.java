@@ -3,17 +3,17 @@ package com.example.projectuas.models;
 import java.util.ArrayList;
 
 public class Books {
-    private ArrayList<Book> data;
+    private ArrayList<Book> values;
 
     public Books() {
 
     }
 
     public ArrayList<Book> getBooks() {
-        return data;
+        return values;
     }
 
     public void setBooks(ArrayList<Book> data) {
-        this.data = data;
+        this.values = values;
     }
 }
