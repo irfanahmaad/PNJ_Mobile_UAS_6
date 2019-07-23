@@ -20,6 +20,7 @@ import java.util.List;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder>{
     private List<Book> values;
     private Context mCtx;
+    private View.OnClickListener mOnItemClickListener;
 
     public BookAdapter(List<Book> data, Context mCtx) {
         this.values = data;
@@ -49,7 +50,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView name,author, description;
         private ImageView image;
-        private Button btnReadmore;
 
         public ViewHolder(View view) {
             super(view);
@@ -59,6 +59,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder>{
             description = view.findViewById(R.id.description);
             image = view.findViewById(R.id.image);
 
+            view.setTag(this);
+            view.setOnClickListener(mOnItemClickListener);
         }
+    }
+
+    //TODO: Step 2 of 4: Assign itemClickListener to your local View.OnClickListener variable
+    public void setOnItemClickListener(View.OnClickListener itemClickListener) {
+        mOnItemClickListener = itemClickListener;
     }
 }

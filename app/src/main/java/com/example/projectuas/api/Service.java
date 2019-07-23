@@ -1,6 +1,7 @@
 package com.example.projectuas.api;
 
 import com.example.projectuas.models.Book;
+import com.example.projectuas.models.BookResponse;
 import com.example.projectuas.models.Books;
 
 import okhttp3.MultipartBody;
@@ -21,7 +22,7 @@ public interface Service {
     );
 
     @GET("book/{id}")
-    Call<Book> getBook(
+    Call<BookResponse> getBook(
             @Path("id") int id
     );
 
